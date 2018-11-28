@@ -1,0 +1,2002 @@
+import java.io.*;
+class exhibit_comp2
+{
+    int toss() throws IOException
+    {
+        BufferedReader input=new BufferedReader (new InputStreamReader(System.in));
+        char toss_choice_by_user;
+        int random_no_generated_for_toss,z,p;
+        char call_is,innings_choice_by_user;
+        System.out.println("HEADS or TAILS?");
+        System.out.println("Enter H for Heads or T for Tails");
+        toss_choice_by_user=input.readLine().charAt(0);
+        while (toss_choice_by_user!='h' && toss_choice_by_user!='H' && toss_choice_by_user!='t' && toss_choice_by_user!='T')
+        {
+            System.out.println("Invalid input. Please enter H to select Heads or enter T to select Tails.");
+            toss_choice_by_user=input.readLine().charAt(0);
+        }
+        random_no_generated_for_toss=(int)(Math.random()*2);
+        if (random_no_generated_for_toss==0)
+        { 
+            call_is='H';
+        }
+        else
+        {
+            call_is='T';
+        }
+        if (call_is=='H')
+        {
+            if (toss_choice_by_user=='H' || toss_choice_by_user=='h')
+            {
+                System.out.println("\nCongrats!!! It is Heads. You have won the toss");
+                System.out.println("So, would you like to Bat first or Bowl first");
+                System.out.println("Enter A to bat and B to Bowl");
+                innings_choice_by_user=input.readLine().charAt(0);
+                while (innings_choice_by_user!='a' && innings_choice_by_user!='A' && innings_choice_by_user!='b' && innings_choice_by_user!='B')
+                {
+                    System.out.println("Invalid input. Please enter A to select Batting or enter B to select Bowling.");
+                    innings_choice_by_user=input.readLine().charAt(0);
+                }
+                if (innings_choice_by_user=='a' || innings_choice_by_user=='A')
+                {
+                    p=0;
+                    return p;
+                }
+                else 
+                {
+                    p=1;
+                    return p;
+                }
+            }
+            else 
+            {
+                 System.out.println("\nOh drat!!! It is Heads. You have lost the toss. Codey will now decide wheather it wants to Bat or Bowl"); 
+                 z=(int)(Math.random()*2);
+                 if (z==0)
+                 {
+                      System.out.println("Codey has elected to BAT");
+                      p=2;
+                      return p;
+                 }
+                 else
+                 {
+                      System.out.println("Codey has elected to Bowl");
+                      p=3;
+                      return p;
+                 }
+            }
+        }                    
+        else // call is tails
+        {
+            if (toss_choice_by_user=='H' || toss_choice_by_user=='h')
+            {
+                 System.out.println("\nOh drat!!! It is Tails. You have lost the toss. Codey will now decide wheather it wants to Bat or Bowl");
+                 z=(int)(Math.random()*2);
+                 if (z==0)
+                 {
+                      System.out.println(" Codey has elected to BAT");
+                      p=2;
+                      return p;
+                 }
+                 else
+                     
+                 {
+                      System.out.println("Codey has elected to Bowl");
+                      p=3;
+                      return p;
+                 }
+            }    
+            else
+            { 
+                 System.out.println("\nCongrats!!! It is Tails. You have won the toss"); 
+                 System.out.println("So, would you like to Bat first or Bowl first");
+                 System.out.println("Enter A to bat and B to Bowl");
+                 innings_choice_by_user=input.readLine().charAt(0);
+                 while (innings_choice_by_user!='a' && innings_choice_by_user!='A' && innings_choice_by_user!='b' && innings_choice_by_user!='B')
+                 {
+                      System.out.println("Invalid input. Please enter A to select Batting or enter B to select Bowling.");
+                      innings_choice_by_user=input.readLine().charAt(0);
+                 }
+                 if (innings_choice_by_user=='a' || innings_choice_by_user=='A')
+                 {
+                      p=0;
+                      return p;
+                 }
+                 else 
+                 {
+                      p=1;
+                      return p;
+                 }
+            }                                   
+         }
+    }
+    void ttwenty (int a, String z) throws IOException
+    {
+        BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
+        int i=0,r=0,cr=0,or=0,c2r=0,t=0,c=0,b=0,to=0,rr=0,bo=0,j=0,j1=0,or1=0,c2r1=0,to1=0,rr1=0,bo1=0,i2=0,r2=0,cr2=0,t2=0,c2=0,b2=0,ns=0,nf=0,ns1=0,nf1=0,ns2=0,nf2=0,l=0,m=0,n=0,l1=0,m1=0,n1=0;
+        if (a==0 || a==3)// user bats first or comp bowls first
+        {
+            System.out.println("\nSo, now it is time for you to bat. But remember, "+ z + ",In this T20 format you will need to hit as much runs as possible in the shortest time to challenge your opponent.");
+            System.out.println("With that being said, prepare yourself for the first bowl");
+            System.out.println("\n\n\nLET THE GAME BEGIN");
+            for (i=1;i<=20;i++)
+            {
+                System.out.println("\n\n\n\n\n\n\n\n\nEnter a number between 0 to 6 which will be the runs you want to hit");
+                r=Integer.parseInt(input.readLine()); 
+                while (r>6 || r<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r=Integer.parseInt(input.readLine());
+                }
+                cr=(int)(Math.random()*7);
+                System.out.println("Your runs = "+r);
+                System.out.println("Codey's guess = "+cr);
+                if (r!=cr)
+                {
+                    if (r==0)
+                    {
+                        System.out.println("\nCommentator-\n"+ z+ " gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " flicks the ball with power towards deep square leg and picks up a double");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\nCommentator-\nWhat a strike!!!" + z + " powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        nf++;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\nCommentator-\nOh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else 
+                    {
+                        System.out.println("\nCommentator-\nOh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        t=t+r;
+                        c=(t/i)*6;
+                        b=20-i;
+                        ns++;
+                        System.out.println("\nCurrent Total =" +t);
+                        System.out.println("Current Run Rate = "+c);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                }
+                else // user run= Codey run
+                {
+                    System.out.println("\nYES!!! I got you.");
+                    System.out.println("You are out");
+                    if (r==0)
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("\nCommentator-\n"+z+ " tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\nCommentator-\n"+z+ "smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\nCommentor-\nA imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\nCommentator-\nOh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("\nCommentator-\nOh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            System.out.println("Your innings has come to an end");
+            System.out.println("Here is your scorecard");
+            System.out.println("\n\n\n **************" +z+ " Scorecard ************************** ");
+            System.out.println("\t\tName : " + z);
+            System.out.println("\t\tTotal runs="+t);
+            System.out.println("\t\tRequired Run Rate="+((t/20)*6));
+            System.out.println("\t\tYou've hit " + nf + "fours");
+            System.out.println("\t\tYou've hit " + ns + "sixes");
+            System.out.println("********************************************************** ");
+            System.out.println("\n\nNow it is my chance to bat");
+            for (j=1;j<=20;j++)
+            {
+                System.out.println("\n\n\n\n\n\nEnter a number between 0 to 6 which will be your guess of Codey's run");
+                or=Integer.parseInt(input.readLine()); 
+                while (or>6 || or<0)
+                {
+                    System.out.println("Oh. It seems you have made a typing error.  Enter a number between 0 and 6");
+                    or=Integer.parseInt(input.readLine());
+                }
+                c2r=(int)(Math.random()*7);
+                System.out.println("Codey's runs = "+c2r);
+                System.out.println("Your guess = "+or);
+                if (c2r!=or)
+                {
+                    if (c2r==0)
+                    {
+                        System.out.println("\nCommentator-\nCodey gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else if (c2r==1) 
+                    {
+                        System.out.println("\nCommentator-\nCodey gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else if (c2r==2)
+                    {
+                        System.out.println("\nCommentator-\nCodey flicks the ball with power towards deep square leg and picks up a double");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else if (c2r==3)
+                    {
+                        System.out.println("\nCommentator-\nCodey drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else if (c2r==4)
+                    {
+                        System.out.println("\nCommentator-\nWhat a strike!!! Codey powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        nf1++;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else if (c2r==5)
+                    {
+                        System.out.println("\nCommentator-\nOh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                    else 
+                    {
+                        System.out.println("\nCommentator-\nOh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        to=to+c2r;
+                        rr=(to/j)*6;
+                        bo=20-j;
+                        ns1++;
+                        if (to>t)
+                        {
+                            System.out.println("\n\n\nYAY!! I win ... You lose. A great match, though.");;
+                            l++;
+                            System.out.println("\n******************** Score Card ********************* ");
+                            System.out.println("\t\tName : Codey");
+                            System.out.println("\t\tTarget = "+t);
+                            System.out.println("\t\tCodey wins by " + (20-j) + " balls");
+                            System.out.println("\t\tCodey has hit " + nf +"fours");
+                            System.out.println("\t\tCodey has hit " + ns +"sixes");
+                            System.out.println( "***************************************************** ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ bo);
+                        System.out.println("My total so far = "+to);
+                        System.out.println("To hit " + (t-to) + " runs in " + bo + " balls");
+                    }
+                }
+                else
+                {
+                    System.out.println("\n\nWHAT!!! How is that possible. I'm Out?!");
+                    if (c2r==0)
+                    {
+                        System.out.println("\nCommentator-\nCodey clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        if (t>to)
+                        {
+                            System.out.println("\nYou win !!! A match, to remember");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else if (c2r==1) 
+                    {
+                        System.out.println("\nCommentator-\nCodey tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else if (c2r==2)
+                    {
+                        System.out.println("\nCommentator-\nCodey tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else if (c2r==3)
+                    {
+                        System.out.println("\nCommentator-\nCodey smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else if (c2r==4)
+                    {
+                        System.out.println("\nCommentator-\nA imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* "); 
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else if (c2r==5)
+                    {
+                        System.out.println("\nCommentator-\nOh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("**************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");
+                        }
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("\nCommentator-\nOh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        if (t>to)
+                        {
+                            System.out.println("You win !!! A match, to remember");
+                            System.out.println("                 ");
+                            m++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("\t\tName : " + z ); 
+                            System.out.println("\t\tYour score = "+t);
+                            System.out.println("\t\tYou win by " + (to-t) +"runs");
+                            System.out.println("****************************************************** ");
+                        }
+                        else
+                        {
+                            System.out.println("Draw!!! A true nail-biter !!! A match, to remember");
+                            System.out.println("                 ");
+                            n++;
+                            System.out.println("\n\n****************** Score Card ********************* ");
+                            System.out.println("          Name : " + z ); 
+                            System.out.println("         Your score = "+t);
+                            System.out.println("           It's a tie");
+                            System.out.println("**************************************************** ");;
+                        }
+                        break;
+                    }
+                }
+            }
+            if (l==0 && m==0 && n==0)
+            {
+                if (t>to)
+                {
+                    System.out.println("Oh no...No balls remaining. I have failed to chase your target");
+                    System.out.println("You win !!! A match, to remember");
+                    System.out.println("                 ");
+                    System.out.println(" ********* Score Card ******** ");
+                    System.out.println("          Name : " + z);
+                    System.out.println("         Your score = "+t);
+                    System.out.println("    You win by " + (to-t) +"runs");
+                    System.out.println("************************************ ");
+                    System.out.println(" ");
+                }
+                else
+                {
+                    System.out.println("Oh no... No more balls remaining. It's a draw. A match to remember. ");
+                    System.out.println("You win !!! A match, to remember");
+                    System.out.println("                 ");
+                    System.out.println(" ********* Score Card ******** ");
+                    System.out.println("          Name : " + z);
+                    System.out.println("         Your score = "+t);
+                    System.out.println("           It's a tie");
+                    System.out.println("************************************ ");
+                    System.out.println(" ");
+                }
+            }
+        }
+        else if (a==1 || a==2)//user bowls first
+        {
+            System.out.println("Oh. As per the toss, you get to bowl first. But remember, " + z + " In this T20 format you will need to limit your opponents run as soon as possible");
+            System.out.println("With that being said, prepare yourself for the first bowl");
+            for (j1=1;j1<=20;j1++)
+            {
+                System.out.println("Enter a number between 0 to 6 which will be your guess of Codey's run");
+                or1=Integer.parseInt(input.readLine()); 
+                while (or1>6 || or1<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    or1=Integer.parseInt(input.readLine());
+                }
+                c2r1=(int)(Math.random()*7);
+                System.out.println("Codey's runs = "+c2r1);
+                System.out.println("Your guess = "+or1);
+                if (c2r1!=or1)
+                {
+                    if (c2r1==0)
+                    {
+                        System.out.println("Codey gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else if (c2r1==1) 
+                    {
+                        System.out.println("Codey gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else if (c2r1==2)
+                    {
+                        System.out.println("Codey flicks the ball with power towards deep square leg and picks up a double");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else if (c2r1==3)
+                    {
+                        System.out.println("Codey drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else if (c2r1==4)
+                    {
+                        System.out.println("What a strike!!! Codey powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        nf2++;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else if (c2r1==5)
+                    {
+                        System.out.println("Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        to1=to1+c2r1;
+                        rr1=(to1/j1)*6;
+                        bo1=20-j1;
+                        ns2++;
+                        System.out.println("My current total =" + to1);
+                        System.out.println("Current Run Rate = "+rr1);
+                        System.out.println("Remaining balls="+ bo1);
+                    }
+                }
+                else
+                {
+                    System.out.println("What!!! How is that possible. I'm out?!");
+                    if (c2r1==0)
+                    {
+                        System.out.println("Codey clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (c2r1==1) 
+                    {
+                        System.out.println("Codey tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (c2r1==2)
+                    {
+                        System.out.println("Codey tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (c2r1==3)
+                    {
+                        System.out.println("Codey smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (c2r1==4)
+                    {
+                        System.out.println("A imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (c2r1==5)
+                    {
+                        System.out.println("Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            System.out.println("Codey's innings has come to an end");
+            System.out.println("Here is his scorecard");
+            System.out.println("                          ");
+            System.out.println("                          ");
+            System.out.println(" **** Codey's Scorecard **** ");
+            System.out.println("Total runs="+to1);
+            System.out.println("Required Run Rate="+(to1/20)*6);
+            System.out.println("Codey has hit " + nf2 + " fours");
+            System.out.println("Codey has hit " + ns2 + " sixes");
+            System.out.println("************************* ");
+            System.out.println("                           ");
+            System.out.println("                          ");
+            System.out.println("Now it is your chance to bat");
+            for (i2=1;i2<=20;i2++)// 2nd innings
+            {
+                System.out.println("Enter a number between 0 to 6 which will be the runs you want to hit");
+                r2=Integer.parseInt(input.readLine()); 
+                while (r2>6 || r2<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r2=Integer.parseInt(input.readLine());
+                }
+                cr2=(int)(Math.random()*7);
+                System.out.println("Your runs = "+r2);
+                System.out.println("My guess = "+cr2);
+                if (r2!=cr2)
+                {
+                    if (r2==0)
+                    {
+                        System.out.println(z +" gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                        System.out.println("Your total so far = " +t2);
+                        System.out.println("To hit " + (t2-to1) + " runs in " + b2 + "balls");
+                    }
+                    else if (r2==1) 
+                    {
+                        System.out.println("Player gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                    }
+                    else if (r2==2)
+                    {
+                        System.out.println("The player flicks the ball with power towards deep square leg and picks up a double");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                    }
+                    else if (r2==3)
+                    {
+                        System.out.println("The player drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                    }
+                    else if (r2==4)
+                    {
+                        System.out.println("What a strike!!! The player powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                    }
+                    else if (r2==5)
+                    {
+                        System.out.println("Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        t2=t2+r2;
+                        c2=(t2/i2)*6;
+                        b2=20-i2;
+                        if (t2>to1)
+                        {
+                            System.out.println("You win ... A match to remember");
+                            System.out.println("                 ");
+                            l1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+t2);
+                            System.out.println("You win by " + (20-i2) + " balls");
+                            System.out.println( "************************ ");
+                            break;
+                        }
+                        System.out.println("Current Run Rate = "+c2);
+                        System.out.println("Remaining balls="+ b2);
+                        System.out.println("Your total so far = " +t2);
+                        System.out.println("To hit " + (t2-to1) + " runs in " + b2 + "balls");
+                    }
+                }
+                else // user run= Codey run
+                {
+                    System.out.println("Yes!!! I got you! That's Out!!!");
+                    if (r==0)
+                    {
+                        System.out.println("The Player clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("The Player tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("The player tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("The player smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("A imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        if (to1>t2)
+                        {
+                            System.out.println("Codey wins ... You lose. A great match, though.");
+                            System.out.println("                 ");
+                            m1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("Codey's score = "+to1);
+                            System.out.println("Codey wins by " + (to1-t2) + "runs");
+                            System.out.println(" ************************ ");
+                        }
+                        else//to1==t2...draw
+                        {
+                            System.out.println("It's a draw. A true nail-biter. A match to remember");
+                            System.out.println("                 ");
+                            n1++;
+                            System.out.println(" **** Score Card **** ");
+                            System.out.println("   Codey's score = "+to1);
+                            System.out.println("      It's a tie");
+                            System.out.println(" ************************ ");
+                        }
+                        break;
+                    }
+                }
+            }
+            if (l1==0 && m1==0 && n1==0)
+            {
+                if (to1>t2)
+                {
+                    System.out.println("Oh no... The game is over... You have failed to chase down Codey");
+                    System.out.println("Codey wins ... You lose. A great match, though.");
+                    System.out.println("                 ");
+                    System.out.println(" **** Score Card **** ");
+                    System.out.println("Codey's score = "+to1);
+                    System.out.println("Codey wins by " + (to1-t2) + "runs");
+                    System.out.println(" ************************ ");
+                }
+                else 
+                {
+                    System.out.println("Oh no... The game is over... It's a tie");
+                    System.out.println(" ");
+                    System.out.println("                 ");
+                    System.out.println(" **** Score Card **** ");
+                    System.out.println("Codey's score = "+to1);
+                    System.out.println("It's a tie");
+                    System.out.println(" ************************ ");
+                }
+            }
+            else 
+            {
+                System.out.println("Bye");
+            }
+        } 
+    }
+    void odi (int a, String y) throws IOException
+    {
+        BufferedReader input = new BufferedReader (new InputStreamReader(System.in));
+        int i=0,r=0,cr=0,j=0,tu=0,tc=0,b=0,rr=0,rrc=0,bc=0,scc=0,scc2=0,ns=0,nf=0,n1=0,n2=0;
+        if (a==0 || a==3)// user bats first or Codey bowls first
+        {
+            System.out.println("\n\nOh. As per the toss, you get to bat first. In this ODI format you will need to hit as much runs as possible to challenge your opponent.");
+            System.out.println("In this you will face 35 deliveries.");
+            System.out.println("\n\n\nWith that being said, prepare yourself for the first bowl");
+            for (i=1;i<=35;i++)
+            {
+                System.out.println("\n\n\n\n\n\nEnter a number between 0 to 6 which will be the runs you want to hit");
+                r=Integer.parseInt(input.readLine()); 
+                while (r>6 || cr<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r=Integer.parseInt(input.readLine());
+                }
+                cr=(int)(Math.random()*7);
+                System.out.println("Your runs = "+r);
+                System.out.println("Codey's guess = "+cr);
+                if (r!=cr)
+                {
+                    if (r==0)// r= runs by user
+                    {
+                        System.out.println("\n Commentator- \n" + y + " gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        tu=tu +r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\n Commentator -\n" + y +  " drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println( "\n Commentator - \n"+y+ "flicks the ball with power towards deep square leg and picks up a double");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\n Commentator - \n"+y+" drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\n Commentator -\n" + "What a strike!!!"  +y + " powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        nf++;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\n Commentator \n -Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        ns++;
+                        System.out.println("\n Current Total =" + tu);
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                }
+                else
+                {
+                    System.out.println("Oh no!!! That's Out!!!");
+                    if (r==0)
+                    {
+                        System.out.println("\n Commentator- \n " + y +"   clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\n Commentator - \n"+y+" tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("\n Commentator - \n"+y+ "tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\n Commentator - \n"+y+" smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\n Commentator - \n A imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\n Commentator - \n Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("\n Commentator - \n Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            System.out.println("Your innings has come to an end");
+            System.out.println("Here is your scorecard");
+            System.out.println("\n\n\n ***********" + y + " Scorecard *****************");
+            System.out.println("                          ");
+            System.out.println("**** Your Scorecard **** ");
+            System.out.println(" \t\t\t Total runs=" +tu);
+            System.out.println("\t\t\t Total runs="+tu);
+            System.out.println("Required Run Rate="+(tu/35)*6);
+            System.out.println(" You have hit " + nf + " fours");
+            System.out.println(" You have hit " + ns + " sixes");
+            System.out.println("************************* ");
+            System.out.println("                           ");
+            System.out.println("Now it is Codey's chance to bat");
+            for (j=1;j<=35;j++)// 2nd innings
+            {
+                System.out.println("\n\n\n\n\n Enter a number between 0 to 6 which will be your guess of Codey's run");
+                r=Integer.parseInt(input.readLine()); 
+                while (r>6 || cr<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r=Integer.parseInt(input.readLine());
+                }
+                cr=(int)(Math.random()*7);
+                System.out.println("Your guess = "+r);
+                System.out.println("Codey's run = "+cr);
+                if (cr!=r)
+                {
+                    if (cr==0)// cr= runs by Codey
+                    {
+                        System.out.println("\n Commentator -\n Codey gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        tc=tc +cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==1) 
+                    {
+                        System.out.println("\n Commentator -\n Codey gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("\n\n\n\n I Won");
+                         System.out.println("Codey's innings has come to an end");
+                         System.out.println(" \n ************* Score Card ************"); 
+                         System.out.println("\t\t Name : Codey");                          
+                         System.out.println("Total runs="+tc);
+                         System.out.println("\t\t Codey wins by" + (35-j) + " balls");
+                         System.out.println("Run Rate="+(tc/35)*6);
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc2++;
+                         break;
+                        }
+                    }
+                    else if (cr==2)
+                    {
+                        System.out.println("\n Commentator -\nCodey flicks the ball with power towards deep square leg and picks up a double");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("\n\n\n\n I Won");
+                         System.out.println("Codey's innings has come to an end");
+                         System.out.println(" \n ************* Score Card ************"); 
+                         System.out.println("\t\t Name : Codey");                          
+                         System.out.println("Total runs="+tc);
+                         System.out.println("\t\t Codey wins by" + (35-j) + " balls");
+                         System.out.println("Run Rate="+(tc/35)*6);
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc2++;
+                         break;
+                        }
+                    }
+                    else if (cr==3)
+                    {
+                        System.out.println("\n Commentator -\nCodey drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("\n\n\n\n I Won");
+                         System.out.println("Codey's innings has come to an end");
+                         System.out.println(" \n ************* Score Card ************"); 
+                         System.out.println("\t\t Name : Codey");                          
+                         System.out.println("Total runs="+tc);
+                         System.out.println("\t\t Codey wins by" + (35-j) + " balls");
+                         System.out.println("Run Rate="+(tc/35)*6);
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc2++;
+                         break;
+                        }
+                    }
+                    else if (cr==4)
+                    {
+                        System.out.println("\n Commentator -\n What a strike!!! Codey powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("\n\n\n\n I Won");
+                         System.out.println("Codey's innings has come to an end");
+                         System.out.println(" \n ************* Score Card ************"); 
+                         System.out.println("\t\t Name : Codey");                          
+                         System.out.println("Total runs="+tc);
+                         System.out.println("\t\t Codey wins by" + (35-j) + " balls");
+                         System.out.println("Run Rate="+(tc/35)*6);
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc2++;
+                         break;
+                        }
+                    }
+                    else if (cr==5)
+                    {
+                        System.out.println("\n Commentator -\n Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("\n\n\n\n I Won");
+                         System.out.println("Codey's innings has come to an end");
+                         System.out.println(" \n ************* Score Card ************"); 
+                         System.out.println("\t\t Name : Codey");                          
+                         System.out.println("Total runs="+tc);
+                         System.out.println("\t\t Codey wins by" + (35-j) + " balls");
+                         System.out.println("Run Rate="+(tc/35)*6);
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc2++;
+                         break;
+                        }
+                    }
+                    else 
+                    {
+                        System.out.println("\n Commentator -\n Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tc>tu)
+                        {
+                         System.out.println("Codey Won");
+                         break;
+                        }
+                    }
+                }
+                else
+                {
+                    System.out.println("Oh no!!! That's Out!!!");
+                    if (cr==0)
+                    {
+                        System.out.println("\n Commentator -\n Codey clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (cr==1) 
+                    {
+                        System.out.println("\n Commentator -\n Codey tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (cr==2)
+                    {
+                        System.out.println("\n Commentator -\n Codey tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (cr==3)
+                    {
+                        System.out.println("\n Commentator -\nCodey smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (cr==4)
+                    {
+                        System.out.println("\n Commentator -\nA imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (cr==5)
+                    {
+                        System.out.println("\n Commentator -\n Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("\n Commentator -\n Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            if(scc2<=0)
+            {
+                System.out.println("Codey's innings has come to an end");
+                System.out.println("Here is Codey's scorecard");
+                System.out.println("                          ");
+                System.out.println("**** Codey's Scorecard **** ");
+                System.out.println("Total runs="+tc);
+                System.out.println("Run Rate="+(tc/35)*6);
+                System.out.println("************************* ");
+                System.out.println("                           ");
+            }
+            if(tc>tu)
+            {
+                System.out.println("Codey Won");
+                
+            }
+            else if(tc<tu)
+            {
+                 System.out.println("You Won");
+                 System.out.println("Codey's innings has come to an end");
+                 System.out.println("Here is Your  scorecard");
+                 System.out.println("                          ");
+                 System.out.println(" **** Your Scorecard **** ");
+                 System.out.println("Total runs="+tu);
+                 System.out.println("Run Rate="+(tu/35)*6);
+                 System.out.println("************************* ");
+                 System.out.println("                           ");
+            }
+            else// tc==tu
+            {
+                System.out.println("Its a draw");
+            }
+        }
+          
+        else if (a==1 || a==2) // user bowl's first or Codey bats first
+            {
+            System.out.println("Oh. As per the toss, you get to bowl first. In this ODI format you will need to stop Codey from hitting many runs.");
+            System.out.println("In this you will bowl 35 deliveries.");
+            System.out.println("With that being said, prepare to bowl the first delivery");
+            for (j=1;j<=35;j++)
+            {
+                System.out.println("Enter a number between 0 to 6 which will be the guess for Codey's runs");
+                r=Integer.parseInt(input.readLine()); 
+                while (r>6 || r<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r=Integer.parseInt(input.readLine());
+                }
+                cr=(int)(Math.random()*7);
+                System.out.println("Your guess = "+r);
+                System.out.println("Codey's runs = "+cr);
+                if (r!=cr)
+                {
+                    if (cr==0)// r= guess by user
+                    {
+                        System.out.println("\n Commentator\n- Codey gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        tc=tc +cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==1) 
+                    {
+                        System.out.println("Codey gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==2)
+                    {
+                        System.out.println("Codey flicks the ball with power towards deep square leg and picks up a double");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==3)
+                    {
+                        System.out.println("Codey drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==4)
+                    {
+                        System.out.println("What a strike!!! Codey powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else if (cr==5)
+                    {
+                        System.out.println("Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-i;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                    }
+                }
+                else
+                {
+                    System.out.println("Oh no!!! That's Out!!!");
+                    if (cr==0)
+                    {
+                        System.out.println("Codey clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (cr==1) 
+                    {
+                        System.out.println("Codey tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (cr==2)
+                    {
+                        System.out.println("Codey tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (cr==3)
+                    {
+                        System.out.println("Codey smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (cr==4)
+                    {
+                        System.out.println("A imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (cr==5)
+                    {
+                        System.out.println("Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            System.out.println("Codey's innings has come to an end");
+            System.out.println("Here is Codey's scorecard");
+            System.out.println("                          ");
+            System.out.println(" **** Codey'S Scorecard **** ");
+            System.out.println("Total runs="+tc);
+            System.out.println("Required Run Rate="+(tc/35)*6);
+            System.out.println("************************* ");
+            System.out.println("                           ");
+            System.out.println("Now it is Your chance to bat");
+            for (i=1;i<=35;i++)// 2nd innings
+            {
+                System.out.println("Enter a number between 0 to 6 which will be your runs");
+                r=Integer.parseInt(input.readLine()); 
+                while (r>6 || r<0)
+                {
+                    System.out.println("That's not possible!!! Enter a number between 0 and 6");
+                    r=Integer.parseInt(input.readLine());
+                }
+                cr=(int)(Math.random()*7);
+                System.out.println("Your run = "+r);
+                System.out.println("Codey's guess = "+cr);
+                if (cr!=r)
+                {
+                    if (r==0)// cr= guess by Codey
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" gracefully leaves the ball and allows it to go to the keeper. A dot delivery");
+                        tu=tu +r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" gently drives the ball right in the hands of the Mid-Wicket fielder. A quick single");
+                        tc=tc+cr;
+                        rrc=(tc/j)*6;
+                        bc=35-j;
+                        System.out.println("Current Run Rate = "+rrc);
+                        System.out.println("Remaining balls="+ bc);
+                        if(tu>tc)
+                        {
+                         System.out.println("You Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc++;
+                         break;
+                        }
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" flicks the ball with power towards deep square leg and picks up a double");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                        if(tc<tu)
+                        {
+                         System.out.println("You  Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc++;
+                         break;
+                        }
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" drives the ball powerfully towards long off. Picks up 3 run. Excellent running between the wickets");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                        if(tc<tu)
+                        {
+                         System.out.println("You  Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc++;
+                         break;
+                        }
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\n Commentator\n What a strike!!! "+ y + " powerfully drives the ball across the covers while fielder barely got the chance to move a muscle. Excellent stroke");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        n1++;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                        if(tc<tu)
+                        {
+                         System.out.println("You Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                          ");
+                         scc++;
+                         break;
+                        }
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\n Commentator \n-  Oh... The fielder at Mid off, in the hope to get a run out, throws the ball with all his energy but misses the wickets by a big margin and gives 4 runs extra via overthrow. What could have been a 1 is now 5");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                        if(tc<tu)
+                        {
+                         System.out.println("You Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc++;
+                         break;
+                        }
+                    }
+                    else 
+                    {
+                        System.out.println("\n Commentator \n Oh my god!!! That's outta here. What a slog over the long on. Fielders can only watch. Full 6 runs. The spectators are sure getting what they paid for");
+                        tu=tu+r;
+                        rr=(tu/i)*6;
+                        b=35-i;
+                        n2++;
+                        System.out.println("Current Run Rate = "+rr);
+                        System.out.println("Remaining balls="+ b);
+                        if(tc<tu)
+                        {
+                         System.out.println("You Won");
+                         System.out.println("Your innings has come to an end");
+                         System.out.println("Here is Your  scorecard");
+                         System.out.println("                          ");
+                         System.out.println(" **** Your Scorecard **** ");
+                         System.out.println("Total runs="+tu);
+                         System.out.println("You win by" + (35-i) + " balls");
+                         System.out.println("Run Rate="+(tu/35)*6);
+                         System.out.println("You have hit " + n1 + " fours");
+                         System.out.println("You have hit " + n2 + " sixes");
+                         System.out.println("************************* ");
+                         System.out.println("                           ");
+                         scc++;
+                         break;
+                        }
+                    }
+                }
+                else
+                {
+                    System.out.println("Oh no!!! That's Out!!!");
+                    if (r==0)
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" clumsily tries to leave the ball but gets a soft edge. Easy catch for the wicketkeeper");
+                        break;
+                    }
+                    else if (r==1) 
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" tries to sweep the ball and get a single but the unexpected bounce got the pad before bat. The opponents appeal for lbw. Umpire agrees");
+                        break;
+                    }
+                    else if (r==2)
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" tries to drive the ball onto the covers but gets a hard edge. The fielder takes the catch in the gulley");
+                        break;
+                    }
+                    else if (r==3)
+                    {
+                        System.out.println("\n Commentator \n-  " +y +" smoothly directs the ball onto fine leg but the ball didn't remain grounded. Tough but successful catch by the deep fine leg");
+                        break;
+                    }
+                    else if (r==4)
+                    {
+                        System.out.println("\n Commentator\n A imperfectly timed square cut in hopes to get a boundary crashes as the cutter delivery knocked the stumps off the ground ");
+                        break;
+                    }
+                    else if (r==5)
+                    {
+                        System.out.println("\n Commentator Oh no!!! Should not have gone for the overthrow runs. Good fielding by the mid-wicket fielder and gets a run out wicket");
+                        break;
+                    }
+                    else 
+                    {
+                        System.out.println("\n Commentator Oh my!!! That's gone high. The ball did not connect well. Fielder at Long off is getting under it and ... caught out!!!");
+                        break;
+                    }
+                }
+            }
+            if(scc<=0)
+            {
+                
+                System.out.println("Your innings has come to an end");
+                System.out.println("Here is your scorecard");
+                System.out.println("                          ");
+                System.out.println("**** YOUR Scorecard **** ");
+                System.out.println("Total runs="+tu);
+                System.out.println("Run Rate="+(tu/35)*6);
+                System.out.println("You have hit " + n1 + " fours");
+                System.out.println("You have hit " + n2 + " sixes");
+                System.out.println("************************* ");
+                System.out.println("                           ");
+            }
+            if(tc>tu)
+            {
+                System.out.println("Codey Won");   
+            }
+            else if(tc<tu)
+            {
+                
+                
+                     System.out.println("You Won");
+                     System.out.println("Your innings has come to an end");
+                     System.out.println("");
+                     System.out.println("");
+                     System.out.println("************************* ");
+                     System.out.println("                          ");
+                
+                 
+            }
+            else// tc==tu
+            {
+                System.out.println("Its a draw");
+            }
+        }
+        else 
+        {
+            System.out.println("Bye");
+        }
+    }
+    public static void main (String args[]) throws IOException
+    {
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        char format_choice, wanting_to_play;
+        int k;
+        String name;
+        exhibit_comp ob = new exhibit_comp();
+        System.out.println("\t\t\tHi, My name is Codey. Welcome to 'THE I.T. FEST, ST. XAVIER'S SCHOOL, DORANDA, 2018'");
+        System.out.println("\n\nToday, we are going to have a quick game of... THE HAND CRICKET");
+        System.out.println("Are you up for it?");
+        System.out.println("Enter Y for Yes or Enter N for No which will terminate the game");
+        wanting_to_play=input.readLine().charAt(0);
+        while (wanting_to_play!='y' && wanting_to_play!='Y' && wanting_to_play!='n' && wanting_to_play!='N')
+        {
+            System.out.println("What? I don't understand. Please enter Y to begin the game or enter N to quit.");
+            wanting_to_play=input.readLine().charAt(0);
+        }
+        if (wanting_to_play=='y'|| wanting_to_play=='Y')
+        {
+            System.out.println("Wise choice. We are going to have so much fun");
+            System.out.println("First things first. What's your name?");
+            name=input.readLine();
+            System.out.println(name+ ",What a wonderful name!");
+            System.out.println("So....LET THE GAME BEGIN");
+            System.out.println("\n \nThere are two format of game to choose from");
+            System.out.println("First, The t20 format in which each of the innings will end after 20 balls. Enter T to choose this format");
+            System.out.println("Second, The ODI format in which each of the innings will end after 35 balls. Enter D to choose this format");
+            System.out.println("\nEnter your choice," + name);
+            format_choice=input.readLine().charAt(0);
+            while( format_choice!= 't' && format_choice!= 'T' && format_choice!= 'd' && format_choice!= 'D')
+            {
+                System.out.println(" Invalid choice . Please Enter T for T-20 format or enter D for ODI format");
+                format_choice=input.readLine().charAt(0);
+            }
+            System.out.println("Ok. But before we begin we need to perform a very vital part of the game. The TOSS!!!");
+            k=ob.toss();
+            if (format_choice=='t' || format_choice=='T')
+            {
+                ob.ttwenty(k,name);
+            }
+            else
+            {
+                ob.odi(k,name);
+            }
+        }
+        else
+        {
+            System.out.println("Oh well...Some other time maybe :(");
+        }
+    }
+}
+       
+
+    
